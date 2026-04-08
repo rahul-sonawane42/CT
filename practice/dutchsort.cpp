@@ -1,40 +1,32 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-void dsort(int arr[], int n){
-    int f = 0;
-    int b = n-1;
-    while (f<b){
-        if (arr[f] == 0){
-            f++;
+void dutchsort(int arr[], int n){
+    int lo = 0;
+    int hi = n-1;
+    int mid = 0;
+
+    while (mid <= hi){
+        if (arr[mid] == 0){
+            swap(arr[lo++],arr[mid++]);
         }
-        if (arr[b] == 2){
-            b--;
+        else if (arr[mid] == 1){
+            mid++;
         }
-        if (arr[f] == 2){
-            swap(arr[f],arr[b]);
-            f++;
-            b--;
-        }
-        if (arr[b] == 0){
-            swap(arr[f],arr[b]);
-            f++;
-            b--;
+        else{
+            swap(arr[mid],arr[hi--]);
         }
     }
-    
 }
 
-int main(){
-    int arr[] = {0,2,1,2,1,0,2,0,1,0,2,1};
-    int size = sizeof(arr)/sizeof(int);
-    dsort(arr,size);
-
-    for (int i = 0; i < size; i++)
-    {
-        cout << arr[i] << " ";
-    }
+int main() {
+    int arr[] = { 0, 1, 2, 0, 1, 2, 1, 2, 1, 0, 0, 2 };
+    int n = sizeof(arr)/sizeof(int);
     
+    dutchsort(arr, n); 
+
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
 
     return 0;
 }
