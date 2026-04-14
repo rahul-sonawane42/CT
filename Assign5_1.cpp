@@ -38,10 +38,11 @@ int main() {
     step++;
   }
 
+  cout << "Signals Cleared!!" << endl;
   for (int i = 0; i < n; i++) {
     cout << signals[i] << " ";
   }
-  cout << endl << step << endl;
+  cout << endl << "Minimum Waiting Time: " << step << endl;
 
   return 0;
 }
